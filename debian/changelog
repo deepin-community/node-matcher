@@ -1,5 +1,87 @@
-template-repository (1.0-1) unstable; urgency=medium
+node-matcher (5.0.0-2) unstable; urgency=medium
 
-  * Initial release
+  [ Debian Janitor ]
+  * Apply multi-arch hints. + node-matcher: Add Multi-Arch: foreign.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Tue, 22 Nov 2022 14:50:27 +0000
+
+node-matcher (5.0.0-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ lintian-brush ]
+  * Remove obsolete fields Contact, Name from debian/upstream/metadata
+    (already present in machine-readable debian/copyright)
+  * Update standards version to 4.6.0, no changes needed.
+
+  [ Yadd ]
+  * Bump debhelper compatibility level to 13
+  * Modernize debian/watch
+    * Fix GitHub tags regex
+    * Use dh-sequence-nodejs
+  * Fix filenamemangle
+  * Drop dependency to nodejs
+  * Mark test dependencies with <!nocheck>
+  * New upstream version 5.0.0
+  * Refresh test patch
+
+ -- Yadd <yadd@debian.org>  Tue, 30 Nov 2021 09:40:48 +0100
+
+node-matcher (2.1.0-1) unstable; urgency=medium
+
+  * Team upload
+  * Bump debhelper compatibility level to 12
+  * Add debian/gbp.conf
+  * Declare compliance with policy 4.4.1
+  * Add "Rules-Requires-Root: no"
+  * New upstream version 2.1.0
+  * Update patch: use tape for test
+
+ -- Xavier Guimard <yadd@debian.org>  Wed, 18 Dec 2019 06:58:50 +0100
+
+node-matcher (1.1.1-2) unstable; urgency=medium
+
+  * Reupload to unstable
+  * Bump Standards-Version to 4.4.0 and debhelper to 12
+  * Switch install to pkg-js-tools
+  * Add myself as an uploader
+
+ -- Utkarsh Gupta <guptautkarsh2102@gmail.com>  Sun, 11 Aug 2019 18:34:10 +0530
+
+node-matcher (1.1.1-1) experimental; urgency=medium
+
+  * Team upload
+
+  [ Raju Devidas ]
+  * Changes to formatting of control file
+  * Bumped standards version
+
+  [ Manas Kashyap ]
+  * New upstream Release
+
+  [ Utkarsh Gupta ]
+  * Switch test to pkg-js-tools
+  * Add d/upstream/metadata
+  * Update d/copyright
+  * Add patch to use mocha
+
+ -- Utkarsh Gupta <guptautkarsh2102@gmail.com>  Thu, 28 Mar 2019 05:48:31 +0530
+
+node-matcher (1.0.0-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Paolo Greppi ]
+  * Update Vcs fields for migration to https://salsa.debian.org/
+
+  [ Pirate Praveen ]
+  * Bump Standards-Version to 4.1.4 (no changes needed)
+  * Bump debhelper compatibility level to 11
+
+ -- Pirate Praveen <praveen@debian.org>  Mon, 18 Jun 2018 15:50:36 +0530
+
+node-matcher (1.0.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #880386)
+
+ -- Raju Devidas <rajudev@disroot.org>  Tue, 31 Oct 2017 11:52:05 +0530

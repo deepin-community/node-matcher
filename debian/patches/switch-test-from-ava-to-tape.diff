@@ -1,0 +1,79 @@
+Description: switch test from ava to tape
+Author: Yadd <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2019-12-18
+Last-Update: 2021-11-30
+
+--- a/test.js
++++ b/test.js
+@@ -1,4 +1,4 @@
+-import test from 'ava';
++import test from 'tape';
+ import {matcher, isMatch} from './index.js';
+ 
+ test('matcher()', t => {
+@@ -9,9 +9,10 @@
+ 	t.deepEqual(matcher(['moo', 'MOO'], ['*oo'], {caseSensitive: true}), ['moo']);
+ 	t.deepEqual(matcher(['moo', 'MOO'], ['*oo'], {caseSensitive: false}), ['moo', 'MOO']);
+ 
+-	t.notThrows(() => {
++	t.doesNotThrow(() => {
+ 		matcher([], []);
+ 	});
++	t.end();
+ });
+ 
+ test('isMatch()', t => {
+@@ -41,6 +42,7 @@
+ 	t.false(isMatch(['foo', 'bar', 'unicorn'], ['*horn', '!b*']));
+ 	t.false(isMatch('moo', ['*oo', '!m*']));
+ 	t.false(isMatch('UNICORN', ['!*oo', 'uni*'], {caseSensitive: true}));
++	t.end();
+ });
+ 
+ test('matches across newlines', t => {
+@@ -48,6 +50,7 @@
+ 	t.deepEqual(matcher(['foo\nbar'], ['foo*r']), ['foo\nbar']);
+ 	t.true(isMatch(['foo\nbar'], ['foo*']));
+ 	t.true(isMatch(['foo\nbar'], ['foo*r']));
++	t.end();
+ });
+ 
+ test('handles empty arguments consistently', t => {
+@@ -272,6 +275,7 @@
+ 	t.throws(() => {
+ 		isMatch(false, ['bar']);
+ 	});
++	t.end();
+ });
+ 
+ test('matcher() negated pattern placement', t => {
+@@ -279,12 +283,14 @@
+ 	t.deepEqual(matcher(['foo', 'bar'], ['!bar', 'fo*', 'ba*']), ['foo']);
+ 	t.deepEqual(matcher(['foo', 'bar'], ['!bar']), ['foo']);
+ 	t.deepEqual(matcher(['foo', 'bar'], ['!bar', 'fu']), []);
++	t.end();
+ });
+ 
+ test('isMatch() negated pattern placement', t => {
+ 	t.true(isMatch(['foo', 'bar'], ['fo*', '*oo', '!bar']));
+ 	t.true(isMatch(['foo', 'bar'], ['!bar', 'fo*', '*oo']));
+ 	t.true(isMatch(['foo', 'bar'], ['!bar']));
++	t.end();
+ });
+ 
+ test('matcher() with allPatterns option', t => {
+@@ -304,6 +310,7 @@
+ 		),
+ 		['tiger has edge over hyenas'],
+ 	);
++	t.end();
+ });
+ 
+ test('isMatch() with allPatterns option', t => {
+@@ -322,4 +329,5 @@
+ 			flags,
+ 		),
+ 	);
++	t.end();
+ });
